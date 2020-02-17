@@ -2,7 +2,7 @@ applications:
 - name: tracker-timesheets
   path: ./applications/timesheets-server/build/libs/timesheets-server.jar
   routes:
-  - route: timesheets-pal-timesheet.cfapps.io
+  - route: timesheets-pal-time.cfapps.io
   memory: 475M
   disk_quota: 475M
   instances: 1
@@ -10,6 +10,8 @@ applications:
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     JAVA_OPTS: '-Xms64m -Xmx256m'
     MANAGEMENT_ENDPOINT_HEALTH_SHOW-DETAILS: 'always'
+    GRANT_TYPE: client_credentials
   services:
   - tracker-timesheets-database
   - tracker-service-registry
+  - tracker-sso

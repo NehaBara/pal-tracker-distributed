@@ -2,7 +2,7 @@ applications:
 - name: tracker-registration
   path: ./applications/registration-server/build/libs/registration-server.jar
   routes:
-  - route: registration-pal-sarika-neha.cfapps.io
+  - route: registration-pal-sarika-neha-hhh.cfapps.io
   memory: 475M
   disk_quota: 475M
   instances: 1
@@ -10,6 +10,8 @@ applications:
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     JAVA_OPTS: '-Xms64m -Xmx256m'
     MANAGEMENT_ENDPOINT_HEALTH_SHOW-DETAILS: 'always'
+    GRANT_TYPE: client_credentials
   services:
   - tracker-registration-database
   - tracker-service-registry
+  - tracker-sso

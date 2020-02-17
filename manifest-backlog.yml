@@ -2,7 +2,7 @@ applications:
 - name: tracker-backlog
   path: ./applications/backlog-server/build/libs/backlog-server.jar
   routes:
-  - route: backlog-pal-backlog.cfapps.io
+  - route: backlog-pal-back.cfapps.io
   memory: 475M
   disk_quota: 475M
   instances: 1
@@ -10,6 +10,8 @@ applications:
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     JAVA_OPTS: '-Xms64m -Xmx256m'
     MANAGEMENT_ENDPOINT_HEALTH_SHOW-DETAILS: 'always'
+    GRANT_TYPE: client_credentials
   services:
   - tracker-backlog-database
   - tracker-service-registry
+  - tracker-sso
